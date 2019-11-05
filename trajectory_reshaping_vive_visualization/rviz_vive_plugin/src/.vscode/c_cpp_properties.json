@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/sickness/catkin_ws/devel/include",
+                "/opt/ros/indigo/include",
+                "/home/sickness/catkin_ws/src/trajectory_reshaping/trajectory_reshaping_test/gazebo_model_spawn/include",
+                "/home/sickness/catkin_ws/src/trajectory_reshaping/trajectory_reshaping_tools/gazebo_ros_pkgs/gazebo_plugins/include",
+                "/home/sickness/catkin_ws/src/trajectory_reshaping/trajectory_reshaping_tools/gazebo_ros_pkgs/gazebo_ros/include",
+                "/home/sickness/catkin_ws/src/trajectory_reshaping/trajectory_reshaping_tools/gazebo_ros_pkgs/gazebo_ros_control/include",
+                "/home/sickness/catkin_ws/src/trajectory_reshaping/rotors_simulator/rotors_control/include",
+                "/home/sickness/catkin_ws/src/trajectory_reshaping/rotors_simulator/rotors_gazebo_plugins/include",
+                "/home/sickness/catkin_ws/src/trajectory_reshaping/rotors_simulator/rotors_joy_interface/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

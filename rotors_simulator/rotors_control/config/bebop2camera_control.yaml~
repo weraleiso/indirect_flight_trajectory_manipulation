@@ -1,0 +1,14 @@
+bebop2camera:
+# Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+# Position Controllers ---------------------------------------
+  cam_yaw_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: cam_yaw_joint
+    pid: {p: 5.0, i: 0.1, d: 1.0}
+  cam_pitch_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: cam_pitch_joint
+    pid: {p: 5.0, i: 0.1, d: 1.0}

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<robot name="hand_right">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" />
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://trajectory_reshaping_world_visualizer/resources/realistic_hand/realistic_hand_right.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <gazebo reference="base_link">
+	<turnGravityOff>true</turnGravityOff>
+  </gazebo>
+
+   <gazebo>
+	<plugin name="gazebo_ros_force_gravity" filename="libgazebo_ros_force_gravity.so">
+      <alwaysOn>true</alwaysOn>
+      <update>100</update>
+      <updateRate>100.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>gravitational_force</topicName>
+	  <modelTrajectoryPointPrefix>mdl_traj_point</modelTrajectoryPointPrefix>
+	  <interactionMode>1</interactionMode> <!-- 1 is hand vector in 3D, 2 is sliding along path -->
+	  <forceMode>2</forceMode> <!-- 1 is force, 2 is veloctiy vector field -->
+	  <pushpullMode>1</pushpullMode> <!-- 1 is PUSH, 2 is PULL -->
+	  <useHandsOption>1</useHandsOption> <!-- 1 is right hand only, 2 is both hands but 2 is NOT TESTED YET -->
+	  <mirrorAroundClosestPoint>1</mirrorAroundClosestPoint> <!-- 0 is disabled, 1 is enabled for mirroring around closest point -->
+	  <handScaleTranslationalMax>20.0</handScaleTranslationalMax> <!-- 75.0 -->
+	  <forceMinDistanceThreshold>0.5</forceMinDistanceThreshold> <!-- 0.5 -->
+	  <forceMaxDistanceThreshold>35.0</forceMaxDistanceThreshold> <!-- 25.0 -->
+	  <forceVelocityScaleTranslationalMax>3.5</forceVelocityScaleTranslationalMax> <!-- 5.0 -->
+	  <mockupMode>2</mockupMode> <!-- 0 is manual setpoint for disaster mockup scene, 1 is synthetic mockup, 2 is real-world lab setup -->
+    </plugin>
+  </gazebo>
+</robot>

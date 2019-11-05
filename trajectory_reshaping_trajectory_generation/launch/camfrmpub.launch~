@@ -1,0 +1,10 @@
+<launch>
+	<group ns="/">
+		<node pkg="camfrmpub"
+		type="camfrmpub"
+		name="camfrmpub_node"
+		output="screen">
+		<rosparam file="$(find camfrmpub)/config/camfrmpub.yaml" command="load" />
+		</node>
+	</group>
+</launch>

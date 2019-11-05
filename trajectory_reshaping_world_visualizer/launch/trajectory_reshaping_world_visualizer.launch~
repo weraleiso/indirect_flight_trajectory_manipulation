@@ -1,0 +1,7 @@
+<launch>
+	<group ns="trajectory_reshaping">
+		<node pkg="trajectory_reshaping_world_visualizer" type="trajectory_reshaping_world_visualizer_node" name="trajectory_reshaping_world_visualizer_node" output="screen">
+			<rosparam file="$(find trajectory_reshaping_world_visualizer)/config/trajectory_reshaping_world_visualizer.yaml" command="load" />
+		</node>
+	</group>
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="trajectory_reshaping_world_logic" type="trajectory_reshaping_world_logic_node" name="trajectory_reshaping_world_logic_node" output="screen">
+	</node>
+</launch>

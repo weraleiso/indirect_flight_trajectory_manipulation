@@ -1,0 +1,619 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.838889
+    Tree Height: 853
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: camera_bebop2actor
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        map:
+          Value: true
+        realistichandleft/base_link:
+          Value: true
+        realistichandright/base_link:
+          Value: true
+        reshaping/bebop2actor/base_link:
+          Value: true
+        reshaping/bebop2actor/base_link_inertia:
+          Value: true
+        reshaping/bebop2actor/camera_left_link:
+          Value: true
+        reshaping/bebop2actor/camera_left_optical_link:
+          Value: true
+        reshaping/bebop2actor/camera_right_link:
+          Value: true
+        reshaping/bebop2actor/imu_link:
+          Value: true
+        reshaping/bebop2actor/imugt_link:
+          Value: true
+        reshaping/bebop2actor/odometry_sensor1:
+          Value: true
+        reshaping/bebop2actor/odometry_sensor1_link:
+          Value: true
+        reshaping/bebop2actor/odometry_sensorgt_link:
+          Value: true
+        reshaping/bebop2actor/rotor_0:
+          Value: true
+        reshaping/bebop2actor/rotor_1:
+          Value: true
+        reshaping/bebop2actor/rotor_2:
+          Value: true
+        reshaping/bebop2actor/rotor_3:
+          Value: true
+        reshaping/bebop2camera/base_link:
+          Value: true
+        reshaping/bebop2camera/base_link_inertia:
+          Value: false
+        reshaping/bebop2camera/cam_pitch_link:
+          Value: false
+        reshaping/bebop2camera/cam_yaw_link:
+          Value: false
+        reshaping/bebop2camera/camera_left_link:
+          Value: false
+        reshaping/bebop2camera/camera_left_optical_link:
+          Value: false
+        reshaping/bebop2camera/camera_right_link:
+          Value: false
+        reshaping/bebop2camera/htc_vive:
+          Value: false
+        reshaping/bebop2camera/htc_vive_hmd_base:
+          Value: false
+        reshaping/bebop2camera/htc_vive_shoulder_left:
+          Value: false
+        reshaping/bebop2camera/htc_vive_shoulder_right:
+          Value: false
+        reshaping/bebop2camera/imu_link:
+          Value: false
+        reshaping/bebop2camera/imugt_link:
+          Value: false
+        reshaping/bebop2camera/odometry_sensor1:
+          Value: false
+        reshaping/bebop2camera/odometry_sensor1_link:
+          Value: false
+        reshaping/bebop2camera/odometry_sensorgt_link:
+          Value: false
+        reshaping/bebop2camera/rotor_0:
+          Value: false
+        reshaping/bebop2camera/rotor_1:
+          Value: false
+        reshaping/bebop2camera/rotor_2:
+          Value: false
+        reshaping/bebop2camera/rotor_3:
+          Value: false
+        tree/base_link:
+          Value: true
+        world:
+          Value: true
+        world/base_link:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          map:
+            {}
+          realistichandleft/base_link:
+            {}
+          realistichandright/base_link:
+            {}
+          reshaping/bebop2actor/base_link:
+            reshaping/bebop2actor/base_link_inertia:
+              {}
+            reshaping/bebop2actor/camera_left_link:
+              reshaping/bebop2actor/camera_left_optical_link:
+                {}
+            reshaping/bebop2actor/camera_right_link:
+              {}
+            reshaping/bebop2actor/imu_link:
+              {}
+            reshaping/bebop2actor/imugt_link:
+              {}
+            reshaping/bebop2actor/odometry_sensor1_link:
+              {}
+            reshaping/bebop2actor/odometry_sensorgt_link:
+              {}
+            reshaping/bebop2actor/rotor_0:
+              {}
+            reshaping/bebop2actor/rotor_1:
+              {}
+            reshaping/bebop2actor/rotor_2:
+              {}
+            reshaping/bebop2actor/rotor_3:
+              {}
+          reshaping/bebop2actor/odometry_sensor1:
+            {}
+          reshaping/bebop2camera/base_link:
+            reshaping/bebop2camera/base_link_inertia:
+              reshaping/bebop2camera/cam_yaw_link:
+                reshaping/bebop2camera/cam_pitch_link:
+                  {}
+            reshaping/bebop2camera/camera_left_link:
+              reshaping/bebop2camera/camera_left_optical_link:
+                {}
+            reshaping/bebop2camera/camera_right_link:
+              {}
+            reshaping/bebop2camera/htc_vive:
+              reshaping/bebop2camera/htc_vive_hmd_base:
+                {}
+              reshaping/bebop2camera/htc_vive_shoulder_left:
+                {}
+              reshaping/bebop2camera/htc_vive_shoulder_right:
+                {}
+            reshaping/bebop2camera/imu_link:
+              {}
+            reshaping/bebop2camera/imugt_link:
+              {}
+            reshaping/bebop2camera/odometry_sensor1_link:
+              {}
+            reshaping/bebop2camera/odometry_sensorgt_link:
+              {}
+            reshaping/bebop2camera/rotor_0:
+              {}
+            reshaping/bebop2camera/rotor_1:
+              {}
+            reshaping/bebop2camera/rotor_2:
+              {}
+            reshaping/bebop2camera/rotor_3:
+              {}
+          reshaping/bebop2camera/odometry_sensor1:
+            {}
+          tree/base_link:
+            {}
+          world/base_link:
+            {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        /reshaping/bebop2actor/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2actor/base_link_inertia:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2actor/camera_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2actor/camera_left_optical_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2actor/camera_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2actor/imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2actor/imugt_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2actor/odometry_sensor1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2actor/odometry_sensorgt_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2actor/rotor_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2actor/rotor_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2actor/rotor_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2actor/rotor_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+      Name: bebop2actor
+      Robot Description: bebop2actor/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        /reshaping/bebop2camera/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2camera/base_link_inertia:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/cam_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/cam_yaw_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/camera_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/camera_left_optical_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2camera/camera_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2camera/imugt_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2camera/odometry_sensor1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2camera/odometry_sensorgt_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        /reshaping/bebop2camera/rotor_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/rotor_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/rotor_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        /reshaping/bebop2camera/rotor_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+      Name: bebop2camera
+      Robot Description: bebop2camera/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: realistichandleft
+      Robot Description: /reshaping/realistichandleft/robot_description
+      TF Prefix: realistichandleft
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: realistichandright
+      Robot Description: /reshaping/realistichandright/robot_description
+      TF Prefix: realistichandright
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /reshaping/marker_hand_sphere
+      Name: realistichandright_sphere
+      Namespaces:
+        hand_sphere: true
+        hand_terrain: true
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: tree
+      Robot Description: tree/robot_description
+      TF Prefix: tree
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: world
+      Robot Description: world/robot_description
+      TF Prefix: world
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /reshaping/marker_path
+      Name: path
+      Namespaces:
+        path: true
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 255; 0; 0
+      Enabled: true
+      Head Diameter: 0.3
+      Head Length: 0.2
+      Length: 0.3
+      Line Style: Lines
+      Line Width: 0.03
+      Name: path_interpolated
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Style: None
+      Radius: 0.03
+      Shaft Diameter: 0.1
+      Shaft Length: 0.1
+      Topic: /reshaping/bebop2camera/path
+      Unreliable: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /reshaping/marker_array_path
+      Name: path_forces
+      Namespaces:
+        path: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /reshaping/bebop2actor/camera/left/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: camera_bebop2actor
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+    - Class: rviz/Camera
+      Enabled: true
+      Image Rendering: background and overlay
+      Image Topic: /reshaping/bebop2camera/camera/left/image_raw
+      Name: camera_bebop2camera
+      Overlay Alpha: 0.5
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+      Visibility:
+        Grid: true
+        OccupancyGrid: true
+        TF: true
+        Value: true
+        bebop2actor: true
+        bebop2camera: true
+        camera_bebop2actor: true
+        path: true
+        path_forces: true
+        path_interpolated: true
+        realistichandleft: true
+        realistichandright: true
+        realistichandright_sphere: true
+        tree: true
+        world: true
+      Zoom Factor: 1
+    - Class: octomap_rviz_plugin/OccupancyGrid
+      Enabled: false
+      Max. Height Display: 3.40282e+38
+      Max. Octree Depth: 16
+      Min. Height Display: -3.40282e+38
+      Name: OccupancyGrid
+      Occupancy Threshold: 0.5
+      Octomap Topic: /octomap_full
+      Queue Size: 5
+      Value: false
+      Voxel Alpha: 1
+      Voxel Coloring: Z-Axis
+      Voxel Rendering: Occupied Voxels
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: world
+    Frame Rate: 90
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 50.1347
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 7.49045
+        Y: -24.7577
+        Z: 13.8917
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.735204
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 3.87173
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1056
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000016a00000396fc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000002800000396000000dd00fffffffb0000000a00560069006500770073000000025a000000b0000000b000fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006100000003a800000016000000000000000000000001000001c500000396fc0200000007fb0000002400630061006d006500720061005f006200650062006f00700032006100630074006f00720100000028000001c70000001600fffffffb0000002600630061006d006500720061005f006200650062006f0070003200630061006d00650072006101000001f5000001c90000001600fffffffb0000002600630061006d006500720061005f006200650062006f0070003200630061006d00650072006101000001f9000001c50000000000000000fb0000000c00430061006d0065007200610100000028000002e20000000000000000fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000c00430061006d0065007200610000000028000002e20000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f0000003efc0100000002fb0000000800540069006d006501000000000000073f000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000004040000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1855
+  X: 65
+  Y: 24
+  camera_bebop2actor:
+    collapsed: false
+  camera_bebop2camera:
+    collapsed: false

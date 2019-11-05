@@ -1,0 +1,70 @@
+PACKAGES TO INSTALL:
+--------------------
+sudo apt-get install libglew-dev python-wstool python-catkin-tools protobuf-compiler libgoogle-glog-dev
+sudo apt-get install ros-indigo-octomap* ros-indigo-joy ros-indigo-ros-control ros-indigo-mav-msgs
+
+roscore
+
+roslaunch trajectory_reshaping_bringup trajectory_reshaping_frontend.launch
+roslaunch trajectory_reshaping_bringup trajectory_reshaping_backend.launch
+
+
+
+PLANNER VALID POINT EXAMPLE:
+rostopic pub /clicked_point_valid geometry_msgs/PointStamped "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+point:
+  x: 25.0
+  y: -15.0
+  z: 2.5"
+
+
+
+rostopic pub -r 10 /dronespace/mocapsystem/drone/location/pose geometry_msgs/PoseStamped "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+pose:
+  position:
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0"
+
+rostopic pub /clicked_point_valid geometry_msgs/PointStamped "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+point:
+  x: 0.25
+  y: -4.0
+  z: 1.25"
+
+rostopic pub -r 10 /vrpn_client_node/DTrack/pose geometry_msgs/PoseStamped "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+pose:
+  position:
+    x: 5.0
+    y: -2.0
+    z: 2.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0"

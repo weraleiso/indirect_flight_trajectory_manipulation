@@ -1,0 +1,8 @@
+<launch>
+	<group ns="dronespace">
+		<node pkg="ds_rviz_object_rendering" type="ds_rviz_object_rendering_node" name="ds_rviz_object_rendering_node" output="screen">
+		<rosparam file="$(find ds_rviz_object_rendering)/config/ds_rviz_object_rendering.yaml" command="load" />
+		</node>
+		<node pkg="rviz" type="rviz" name="my_rviz" args="-d $(find ds_rviz_object_rendering)/config/rviz_config.rviz"/>
+	</group>
+</launch>

@@ -1,0 +1,7 @@
+sys_params:
+  image_fpv_window_name: FPV_DRONE
+  image_compression: 50
+  socket_is_blocking: false
+  yaw_saturation: 80.0
+  is_using_joystick_input: true
+  is_using_trajectory_planner: false

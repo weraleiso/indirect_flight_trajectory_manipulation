@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<robot name="tree">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" />
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://trajectory_reshaping_world_visualizer/resources/tree_simplified/tree_simplified.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 7.5"/>
+      <geometry>
+	<cylinder length="15.0" radius="0.01"/>
+	<!--<mesh filename="package://trajectory_reshaping_world_visualizer/resources/tree_simplified/tree_simplified.stl"/>-->
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="base_link">
+	<turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+   <!--<gazebo>
+	<plugin name="gazebo_ros_force_gravity" filename="libgazebo_ros_force_gravity.so">
+      <alwaysOn>true</alwaysOn>
+      <update>100</update>
+      <updateRate>100.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>gravitational_force</topicName>
+	  <modelTrajectoryPointPrefix>mdl_traj_point</modelTrajectoryPointPrefix>
+	  <handScaleTranslational>5.0</handScaleTranslational>
+	  <forceMaxDistanceThreshold>5.0</forceMaxDistanceThreshold>
+	  <useHandsOption>2</useHandsOption>
+    </plugin>
+  </gazebo>-->
+</robot>

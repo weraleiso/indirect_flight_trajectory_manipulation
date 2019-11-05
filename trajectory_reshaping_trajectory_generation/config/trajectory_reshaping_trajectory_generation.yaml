@@ -1,0 +1,8 @@
+sys_params:
+        sample_time: 0.02
+        rise_time: 1.0
+        epsilon: 0.001
+        initial_setpoint_x: -1.0
+        initial_setpoint_y: 0.0
+        initial_setpoint_z: 1.0
+        initial_setpoint_yaw: 0.0

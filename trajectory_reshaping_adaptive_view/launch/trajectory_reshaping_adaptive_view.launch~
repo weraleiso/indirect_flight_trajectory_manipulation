@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="trajectory_reshaping_hand_mapping" type="trajectory_reshaping_hand_mapping_node" name="trajectory_reshaping_hand_mapping_node" output="screen">
+	<rosparam file="$(find trajectory_reshaping_hand_mapping)/config/trajectory_reshaping_hand_mapping.yaml" command="load" />
+	</node>
+</launch>

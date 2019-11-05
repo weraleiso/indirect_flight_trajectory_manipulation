@@ -1,0 +1,10 @@
+par_system:
+        par_buffered_publish_rate: 50
+par_geometry:
+        par_takeoff_setpoint_x: 0.0
+        par_takeoff_setpoint_y: 0.0
+        par_takeoff_setpoint_z: 1.0
+        par_buffered_setpoint_sat_x: 5.0
+        par_buffered_setpoint_sat_y: 5.0
+        par_buffered_setpoint_sat_z: 2.0
+        par_buffered_setpoint_sat_yaw: 0.0 #YAW given in degrees!

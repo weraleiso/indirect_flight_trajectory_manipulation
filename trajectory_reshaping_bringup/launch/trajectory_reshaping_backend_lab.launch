@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+
+<launch>
+	<arg name="namespace_global" default="/reshaping"/>
+	<arg name="mav_name_actor" default="bebop2actor"/>
+	<arg name="mav_name_camera" default="bebop2camera"/>
+
+	<arg name="world_model_name" default="world"/>
+	<arg name="hand_left_model_name" default="realistichandleft"/>
+	<arg name="hand_right_model_name" default="realistichandright"/>
+	<!--<arg name="obstacle_tree_model_name" default="tree"/>-->
+	<arg name="obstacle_sphere_model_name" default="obstaclesphere"/>
+
+
+	<group ns="$(arg namespace_global)">
+
+		<arg name="world_name" default="trajectory_reshaping_mockup"/>
+		<arg name="enable_logging" default="false" />
+		<arg name="enable_ground_truth" default="true" />
+		<arg name="log_file" default="logfile" />
+		<arg name="debug" default="false"/>
+		<arg name="gui" default="false"/>
+		<arg name="paused" value="true"/>
+		<!-- The following line causes gzmsg and gzerr messages to be printed to the console
+		  (even when Gazebo is started through roslaunch) -->
+		<arg name="verbose" default="false"/>
+
+		<env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find rotors_gazebo)/models"/>
+		<env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find rotors_gazebo)/models"/>
+		<include file="$(find gazebo_ros)/launch/empty_world.launch">
+			<arg name="world_name" value="$(find rotors_gazebo)/worlds/$(arg world_name).world" />
+			<arg name="debug" value="$(arg debug)" />
+			<arg name="paused" value="$(arg paused)" />
+			<arg name="gui" value="$(arg gui)" />
+			<arg name="verbose" value="$(arg verbose)"/>
+		</include>
+
+
+		<group ns="$(arg mav_name_actor)">
+			<include file="$(find rotors_gazebo)/launch/spawn_$(arg mav_name_actor).launch">
+				<arg name="namespace_global" value="$(arg namespace_global)" />
+				<arg name="mav_name" value="$(arg mav_name_actor)" />
+				<arg name="namespace" value="$(arg namespace_global)/$(arg mav_name_actor)" />
+				<arg name="model" value="$(find rotors_description)/urdf/$(arg mav_name_actor)_generic_odometry_sensor.gazebo" />
+				<arg name="enable_logging" value="$(arg enable_logging)" />
+				<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+				<arg name="log_file" value="$(arg log_file)_$(arg mav_name_actor)"/>
+			</include>
+			<node name="lee_position_controller_node" pkg="rotors_control" type="lee_position_controller_node" output="screen">
+				<rosparam command="load" file="$(find rotors_gazebo)/resource/lee_controller_bebop2.yaml" />
+				<rosparam command="load" file="$(find rotors_gazebo)/resource/bebop2.yaml" />
+				<remap from="odometry" to="odometry_sensor1/odometry" />
+			</node>
+			<node name="hovering_example" pkg="rotors_gazebo" type="hovering_example" output="screen"/>
+			<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+			<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+		</group>
+
+		<group ns="$(arg mav_name_camera)">
+			<include file="$(find rotors_gazebo)/launch/spawn_$(arg mav_name_camera).launch">
+				<arg name="namespace_global" value="$(arg namespace_global)" />
+				<arg name="mav_name" value="$(arg mav_name_camera)" />
+				<arg name="namespace" value="$(arg namespace_global)/$(arg mav_name_camera)" />
+				<arg name="model" value="$(find rotors_description)/urdf/$(arg mav_name_camera)_generic_odometry_sensor.gazebo" />
+				<arg name="enable_logging" value="$(arg enable_logging)" />
+				<arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+				<arg name="log_file" value="$(arg log_file)_$(arg mav_name_camera)"/>
+			</include>
+			<node name="lee_position_controller_node" pkg="rotors_control" type="lee_position_controller_node" output="screen">
+				<rosparam command="load" file="$(find rotors_gazebo)/resource/lee_controller_bebop2.yaml" />
+				<rosparam command="load" file="$(find rotors_gazebo)/resource/bebop2.yaml" />
+				<remap from="odometry" to="odometry_sensor1/odometry" />
+			</node>
+			<!--<node name="controller_spawner" pkg="controller_manager" type="spawner" ns="$(arg namespace)" respawn="false" output="screen" args="joint_state_controller cam_yaw_joint_position_controller cam_pitch_joint_position_controller">
+				<rosparam file="$(find rotors_control)/config/bebop2camera_control.yaml" command="load" ns="$(arg namespace)"/>
+			</node>-->
+			<node name="hovering_example" pkg="rotors_gazebo" type="hovering_example" output="screen"/>
+			<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+			<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+		</group>
+
+
+		<group ns="$(arg world_model_name)">
+			<include file="$(find rotors_gazebo)/launch/spawn_trajectory_reshaping_mockup.launch">
+				<arg name="namespace_global" value="$(arg namespace_global)" />
+				<arg name="namespace" value="$(arg namespace_global)/$(arg world_model_name)" />
+				<arg name="model_name" value="$(arg world_model_name)" />
+			</include>
+			<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+			<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+		</group>
+
+
+		<group ns="$(arg hand_left_model_name)">
+			<include file="$(find rotors_gazebo)/launch/spawn_$(arg hand_left_model_name).launch">
+				<arg name="namespace_global" value="$(arg namespace_global)" />
+				<arg name="namespace" value="$(arg namespace_global)/$(arg hand_left_model_name)" />
+				<arg name="model_name" value="$(arg hand_left_model_name)" />
+			</include>
+			<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+			<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+		</group>
+
+		<group ns="$(arg hand_right_model_name)">
+			<include file="$(find rotors_gazebo)/launch/spawn_$(arg hand_right_model_name).launch">
+				<arg name="namespace_global" value="$(arg namespace_global)" />
+				<arg name="namespace" value="$(arg namespace_global)/$(arg hand_right_model_name)" />
+				<arg name="model_name" value="$(arg hand_right_model_name)" />
+			</include>
+			<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+			<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+		</group>
+
+		<!--<group ns="$(arg obstacle_sphere_model_name)">
+			<include file="$(find rotors_gazebo)/launch/spawn_$(arg obstacle_sphere_model_name).launch">
+				<arg name="namespace_global" value="$(arg namespace_global)" />
+				<arg name="namespace" value="$(arg namespace_global)/$(arg obstacle_sphere_model_name)" />
+				<arg name="model_name" value="$(arg obstacle_sphere_model_name)" />
+			</include>
+			<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+			<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+		</group>-->
+
+
+		<!--<node pkg="trajectory_reshaping_world_visualizer" type="trajectory_reshaping_world_visualizer_node" name="trajectory_reshaping_world_visualizer_node" output="screen">
+			<rosparam file="$(find trajectory_reshaping_world_visualizer)/config/trajectory_reshaping_world_visualizer.yaml" command="load" />
+		</node>-->
+		<!--<node pkg="tf" type="static_transform_publisher" name="world_to_world_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 world world/base_link 50" />
+		<node pkg="rviz" type="rviz" name="rviz" args="-d $(find trajectory_reshaping_viz)/rviz/trajectory_reshaping.rviz"/>-->
+		
+		<!--<include file="$(find trajectory_reshaping_adaptive_view)/launch/trajectory_reshaping_adaptive_view.launch"></include>-->
+		<!--<include file="$(find trajectory_reshaping_trajectory_generation)/launch/trajectory_reshaping_trajectory_generation.launch"></include>-->
+	</group>
+
+	<!-- Start PRM-Planner -->
+	<!--<node name="relay_clicked_point" pkg="topic_tools" type="relay" args="/clicked_point /clicked_point_valid"/>-->
+	<include file="$(find octomap_based_planners_ros)/launch/octomap_based_planner_ros_reshape_mockup.launch">
+	</include>
+
+	<!-- Start World-Logic -->
+	<!--<include file="$(find trajectory_reshaping_world_logic)/launch/trajectory_reshaping_world_logic.launch">
+	</include>-->
+
+	<!-- Start Node for Adaptive View Management -->
+	<include file="$(find trajectory_reshaping_adaptive_view)/launch/trajectory_reshaping_adaptive_view.launch">
+	</include>
+
+	<!-- Start Node for Trajectory Generation -->
+	<include file="$(find trajectory_reshaping_trajectory_generation)/launch/trajectory_reshaping_trajectory_generation.launch">
+	</include>
+
+	<!-- Start Node for Velocity Profile Generation Generation -->
+	<include file="$(find trajectory_reshaping_velocity_profile)/launch/trajectory_reshaping_velocity_profile.launch">
+	</include>
+
+</launch>

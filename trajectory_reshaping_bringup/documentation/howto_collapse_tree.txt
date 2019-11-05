@@ -1,0 +1,22 @@
+rosservice call /reshaping/gazebo/set_model_state "model_state:
+  model_name: 'tree'
+  pose:
+    position:
+      x: 27.5
+      y: -10.0
+      z: 0.01
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 0.0
+  twist:
+    linear:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    angular:
+      x: 1.5
+      y: 0.0
+      z: 0.0
+  reference_frame: 'world'"

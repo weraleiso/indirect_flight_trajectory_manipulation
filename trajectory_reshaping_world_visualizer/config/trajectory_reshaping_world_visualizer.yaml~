@@ -1,0 +1,16 @@
+par_system:
+        par_buffered_publish_rate: 50
+par_geometry:
+        par_takeoff_setpoint_x: 0.0
+        par_takeoff_setpoint_y: 0.0
+        par_takeoff_setpoint_z: 1.0
+        par_buffered_setpoint_sat_x: 5.0
+        par_buffered_setpoint_sat_y: 5.0
+        par_buffered_setpoint_sat_z: 2.0
+        par_buffered_setpoint_sat_yaw: 0.0 #YAW given in degrees!
+par_gravitational_force:
+        par_gravitational_constant_default: 0.981 #1/10 of the earths gravity for default
+        par_mass_hand_default: 1.0
+        par_mass_trajectory_point_default: 1.0
+par_hand_mapping:
+        par_scale_translation: 10.0

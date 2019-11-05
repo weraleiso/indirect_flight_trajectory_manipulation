@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="namespace_global" default="global"/>
+  <arg name="namespace" default="spawn"/>
+  <arg name="mav_name" default="bebop"/>
+  <arg name="model" default="$(find rotors_description)/urdf/bebop2_camera_base.xacro"/>
+  <arg name="tf_prefix" default="$(arg namespace)"/>
+  <arg name="x" default="-1.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.1"/>
+  <arg name="enable_logging" default="false"/>
+  <arg name="enable_ground_truth" default="true"/>
+  <arg name="log_file" default="$(arg mav_name)"/>
+  <arg name="wait_to_record_bag" default="false"/>
+  <arg name="enable_mavlink_interface" default="false"/>
+
+  <!-- send the robot XML to param server -->
+  <param name="robot_description" command="
+    $(find xacro)/xacro.py '$(arg model)'
+    enable_logging:=$(arg enable_logging)
+    enable_ground_truth:=$(arg enable_ground_truth)
+    enable_mavlink_interface:=$(arg enable_mavlink_interface)
+    log_file:=$(arg log_file)
+    wait_to_record_bag:=$(arg wait_to_record_bag)
+    mav_name:=$(arg mav_name)
+    namespace:=$(arg namespace)"
+  />
+  <param name="tf_prefix" type="string" value="$(arg tf_prefix)" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_$(arg namespace)" pkg="gazebo_ros" type="spawn_model" args="-gazebo_namespace $(arg namespace_global)/gazebo -param robot_description -urdf -x $(arg x) -y $(arg y) -z $(arg z) -model $(arg mav_name)" respawn="false" output="screen"></node>
+
+	<!--<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/trajectory_reshaping_bebop2_camera" args="joint_state_controller cam_yaw_joint_position_controller cam_pitch_joint_position_controller">
+			<rosparam file="$(find rotors_control)/config/control.yaml" command="load" ns="/trajectory_reshaping_bebop2_camera"/>
+	</node>-->
+	<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller cam_yaw_joint_position_controller cam_pitch_joint_position_controller">
+			<rosparam file="$(find rotors_control)/config/control.yaml" command="load" ns="/trajectory_reshaping_bebop2_camera"/>
+	</node>
+</launch>

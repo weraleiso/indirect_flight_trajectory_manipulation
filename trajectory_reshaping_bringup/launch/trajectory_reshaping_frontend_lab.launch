@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<launch>
+	<arg name="namespace_global" default="/reshaping"/>
+	<arg name="mav_name_actor" default="bebop2actor"/>
+	<arg name="mav_name_camera" default="bebop2camera"/>
+
+	<group ns="$(arg namespace_global)">
+		<node pkg="trajectory_reshaping_world_visualizer" type="trajectory_reshaping_world_visualizer_node" name="trajectory_reshaping_world_visualizer_node" output="screen">
+			<rosparam file="$(find trajectory_reshaping_world_visualizer)/config/trajectory_reshaping_world_visualizer.yaml" command="load" />
+		</node>
+
+		<!--<node name="relay_clicked_point" pkg="topic_tools" type="relay" args="/clicked_point /clicked_point_valid"/> HANDLED BY GRAV.FORCE PLUGIN NOW--> 
+		<node pkg="tf" type="static_transform_publisher" name="world_to_usb_cam" args="-0.5 0.0 2.25 0.0 0.5 0.0 world usb_cam 10" />
+		<node pkg="tf" type="static_transform_publisher" name="world_to_map_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 world /map 10" />
+		<node pkg="tf" type="static_transform_publisher" name="world_to_world_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 world world/base_link 10" />
+		<node pkg="tf" type="static_transform_publisher" name="bebop2camera_to_htc_vive" args="0.15 0.0 -0.25 0.0 0.0 0.0 reshaping/bebop2camera/base_link reshaping/bebop2camera/htc_vive 10"/>
+		<node pkg="tf" type="static_transform_publisher" name="htc_vive_to_htc_vive_hmd_base" args="0.0 0.0 0.25 0.0 0.0 0.0 reshaping/bebop2camera/htc_vive reshaping/bebop2camera/htc_vive_hmd_base 10"/>
+		<node pkg="tf" type="static_transform_publisher" name="htc_vive_to_htc_vive_shoulder_left" args="0.0 0.25 0.0 0.0 0.0 0.0 reshaping/bebop2camera/htc_vive reshaping/bebop2camera/htc_vive_shoulder_left 10"/>
+		<node pkg="tf" type="static_transform_publisher" name="htc_vive_to_htc_vive_shoulder_right" args="0.0 -0.25 0.0 0.0 0.0 0.0 reshaping/bebop2camera/htc_vive reshaping/bebop2camera/htc_vive_shoulder_right 10"/>
+
+		<node pkg="rviz" type="rviz" name="rviz" args="-d $(find trajectory_reshaping_viz)/rviz/trajectory_reshaping_mockup.rviz"/>
+	</group>
+
+	<!-- Start Node for Adaptive View Management -->
+	<!--<include file="$(find trajectory_reshaping_adaptive_view)/launch/trajectory_reshaping_adaptive_view.launch">
+	</include>-->
+
+	<!-- Start Node for Trajectory Generation -->
+	<!--<include file="$(find trajectory_reshaping_trajectory_generation)/launch/trajectory_reshaping_trajectory_generation.launch">
+	</include>-->
+
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+	<!--<group ns="dronespace">-->
+		<node pkg="ds_reshape_world_visualizer" type="ds_reshape_world_visualizer_node" name="ds_reshape_world_visualizer_node" output="screen">
+		<rosparam file="$(find ds_reshape_world_visualizer)/config/ds_reshape_world_visualizer.yaml" command="load" />
+		</node>
+		<!--<node pkg="rviz" type="rviz" name="ds_rviz" args="-d $(find ds_reshape_world_visualizer)/config/ds_rviz_config.rviz"/>-->
+	<!--</group>-->
+</launch>

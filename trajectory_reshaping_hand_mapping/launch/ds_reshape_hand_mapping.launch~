@@ -1,0 +1,7 @@
+<launch>
+	<group ns="dronespace">
+		<node pkg="ds_setpoint_buffer" type="ds_setpoint_buffer_node" name="ds_setpoint_buffer_node" output="screen">
+		<rosparam file="$(find ds_setpoint_buffer)/config/ds_setpoint_buffer.yaml" command="load" />
+		</node>
+	</group>
+</launch>

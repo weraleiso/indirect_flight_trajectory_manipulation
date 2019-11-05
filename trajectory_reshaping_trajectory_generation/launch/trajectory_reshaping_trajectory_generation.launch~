@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="dronespace_lowpass_filter" type="dronespace_lowpass_filter_node" name="dronespace_lowpass_filter_node" output="screen">
+	<rosparam file="$(find dronespace_lowpass_filter)/config/dronespace_lowpass_filter.yaml" command="load" />
+	</node>
+</launch>

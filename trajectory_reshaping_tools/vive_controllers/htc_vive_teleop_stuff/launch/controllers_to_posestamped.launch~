@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+<arg name="/use_sim_time" value="true"/>
+  <node name="left_controller_ps" 
+    pkg="htc_vive_teleop_stuff" 
+    type="frame_as_posestamped.py"
+    args="left_controller hmd reshaping/bebop2camera/htc_vive_hmd realistichandright/htc_vive_controller_left/pose_stamped 90"/>
+  <node name="right_controller_ps" 
+    pkg="htc_vive_teleop_stuff" 
+    type="frame_as_posestamped.py"
+    args="right_controller hmd reshaping/bebop2camera/htc_vive_hmd realistichandright/htc_vive_controller_right/pose_stamped 90"/>
+</launch>

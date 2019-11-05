@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>htc_vive_helper</name>
+  <version>0.0.0</version>
+  <description>The htc_vive_helper package contains libraries to
+    deal easier with the HTC Vive system through ROS.</description>
+
+  <maintainer email="Sammy.Pfeiffer@student.uts.edu.au">Sammy Pfeiffer</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+</package>

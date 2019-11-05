@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="trajectory_reshaping_trajectory_generation" type="trajectory_reshaping_trajectory_generation_node" name="trajectory_reshaping_trajectory_generation_node" output="screen">
+	<rosparam file="$(find trajectory_reshaping_trajectory_generation)/config/trajectory_reshaping_trajectory_generation.yaml" command="load" />
+	</node>
+</launch>

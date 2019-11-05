@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="trajectory_reshaping_test" type="trajectory_reshaping_test_node" name="trajectory_reshaping_test_node" output="screen">
+	<rosparam file="$(find trajectory_reshaping_test)/config/trajectory_reshaping_test.yaml" command="load" />
+	</node>
+</launch>

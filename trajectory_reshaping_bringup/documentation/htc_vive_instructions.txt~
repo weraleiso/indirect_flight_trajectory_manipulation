@@ -1,0 +1,70 @@
+HTC VIVE INSTALLATION ON ROS-INDIGO:
+
+Update CMake:
+version=3.12 //The newest version currently
+build=1
+mkdir ~/temp
+cd ~/temp
+wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz
+tar -xzvf cmake-$version.$build.tar.gz
+cd cmake-$version.$build/
+./bootstrap
+make -j4
+sudo make install
+cmake --version // Test version
+
+Graphics card:
+sudo add-apt-repository ppa:graphics-drivers
+sudo apt-get update
+// Install latest driver in Additional Drivers, can be open-source
+
+sudo gedit /usr/share/vulkan/icd.d/nvidia_icd.json
+// Change library path from libGL.so.1 to libGLX_nvidia.so.0
+
+// Create a symbolic link for SteamVR
+sudo ln -s /lib/x86_64-linux-gnu/libudev.so.1 /lib/x86_64-linux-gnu/libudev.so.0
+
+// Create file /lib/udev/rules.d/60-HTC-Vive-perms.rules and paste:
+# HTC Vive HID Sensor naming and permissioning
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0bb4", ATTRS{idProduct}=="2c87", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="28de", ATTRS{idProduct}=="2101", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="28de", ATTRS{idProduct}=="2000", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="28de", ATTRS{idProduct}=="1043", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="28de", ATTRS{idProduct}=="2050", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="28de", ATTRS{idProduct}=="2011", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="28de", ATTRS{idProduct}=="2012", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0bb4", ATTRS{idProduct}=="2c87", TAG+="uaccess"
+# HTC Camera USB Node
+SUBSYSTEM=="usb", ATTRS{idVendor}=="114d", ATTRS{idProduct}=="8328", TAG+="uaccess"
+# HTC Mass Storage Node
+SUBSYSTEM=="usb", ATTRS{idVendor}=="114d", ATTRS{idProduct}=="8200", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="114d", ATTRS{idProduct}=="8a12", TAG+="uaccess"
+
+Install Steam and other dependencies:
+sudo apt-get install steam libsdl2-dev libvulkan-dev libudev-dev libssl-dev zlib1g-dev python-pip libglew-dev
+
+sudo pip install openvr
+
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test 
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+
+// Open Steam, open the VR section and install SteamVR
+// You may ignore the prompt about not being in direct mode
+// Complete the VRRoom setup
+// Be careful, to turn the coordinate system as you want
+
+// Settings for SteamVR
+gedit ~/.steam/steam/steamapps/common/SteamVR/resources/settings/default.vrsettings
+// Set following, if not already
+"enableHomeApp": false
+"directMode": true
+
+ADD following line to bashrc:
+source ~/catkin_ws/src/trajectory_reshaping/trajectory_reshaping_vive_visualization/rviz_vive_plugin/runtime_setup.sh
+
+// Perhaps? I was testing to many things to be sure...
+sudo apt-get install --install-recommends linux-generic-lts-xenial xserver-xorg-core-lts-xenial xserver-xorg-lts-xenial xserver-xorg-video-all-lts-xenial xserver-xorg-input-all-lts-xenial libwayland-egl1-mesa-lts-xenial 
+
+

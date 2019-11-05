@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="trajectory_reshaping_velocity_profile" type="trajectory_reshaping_velocity_profile_node" name="trajectory_reshaping_velocity_profile_node" output="screen">
+	<rosparam file="$(find trajectory_reshaping_velocity_profile)/config/trajectory_reshaping_velocity_profile.yaml" command="load" />
+	</node>
+	<!--<node pkg="tf" type="static_transform_publisher" name="drone_to_baselink_tf" args="0.0 0.0 0.0 0.0 0.0 0.0 drone base_link_q5 10.0"/>-->
+	<!--<node pkg="tf" type="static_transform_publisher" name="baselink_to_camera_tf" args="0.0 0.0 0.0 -1.571 0.0 -1.798 camera_base_link camera_optical 10.0"/>-->
+</launch>
